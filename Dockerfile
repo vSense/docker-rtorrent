@@ -1,6 +1,6 @@
 # nginx + rtorrent + rutorrent Dockerfile
 
-FROM alpine:3.2
+FROM alpine:3.1
 
 MAINTAINER Kevin Lefevre <klefevre@vsense.fr>
 
