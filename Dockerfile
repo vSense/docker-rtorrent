@@ -1,6 +1,6 @@
 # nginx + rtorrent + rutorrent Dockerfile
 
-FROM alpine:3.1
+FROM alpine:3.2
 
 MAINTAINER Kevin Lefevre <klefevre@vsense.fr>
 
@@ -19,7 +19,7 @@ RUN apk add --update \
 	&& git clone https://github.com/Novik/ruTorrent.git /rutorrent \
 	&& mkdir -p /tmp/nginx/client-body /downloads/incoming /downloads/completed /downloads/watched /downloads/sessions /tmp/rtorrent \
 	&& adduser -D -h / -u 5001 rtorrent \
-	&& chown -R rtorrent:rtorrent /downloads /rutorrent /tmp/rtorrent \
+	&& chown -R rtorrent:rtorrent /downloads /rutorrent /tmp/rtorrent /var/lib/nginx \
     && sed -i \
 	-e 's/group =.*/group = rtorrent/' \
 	-e 's/user =.*/user = rtorrent/' \
