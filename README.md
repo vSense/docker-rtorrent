@@ -6,9 +6,9 @@ rTorrent is a BitTorrent client.
 ruTorrent is a front-end for the popular Bittorrent client rtorrent.
 > [More info](https://github.com/Novik/ruTorrent)
 
-## How to use this images
+## How to use this image
 
-This is a Dockerfile to set up "rtorrent with rutorrent" it based on Alpine Linux and uses Nginx and php-fpm
+This is a Dockerfile to set up "rtorrent with rutorrent", it based on Alpine Linux and uses Nginx and php-fpm
 
 This image contains 2 volumes you can override with host or data containers volumes:
 - /downloads : your downloads folder
@@ -30,7 +30,7 @@ Because rutorrent is often updated and save your settings, it is possible to git
 
 A sample of `.rtorrentrc` is available in this repo as `rtorrent.conf`
 
-It is also possible to ovveride it by mounting the file from host: 
+It is also possible to override it by mounting the file from host: 
 
 ```
 docker run -d --name rtorrent --hostname rtorrent -p 6881:6881 -p 6881:6881/udp -p 51413:51413 -p 51413:51413/udp -v /srv/configs/rutorrent:/rutorrent -v /srv/seedbox:/downloads vsense/rtorrent -v /srv/config/rtorrent/rtorrent.conf:/.rtorrentrc
