@@ -32,7 +32,8 @@ RUN apk add --update \
 	/etc/php/php.ini \
     && sed -i \
 	-e "/curl/ s/''/'\/usr\/bin\/curl'/" \
-	/rutorrent/conf/config.php
+	/rutorrent/conf/config.php \
+    && rm -rf /var/cache/apk/*
 
 COPY supervisord-rtorrent.ini /etc/supervisor.d/supervisord-rtorrent.ini
 
