@@ -1,7 +1,7 @@
 ## What is rtorrent/rutorrent
 
 rTorrent is a BitTorrent client.
-> [More info](https://github.com/Novik/ruTorrent)
+> [More info](https://github.com/rakshasa/rtorrent)
 
 ruTorrent is a front-end for the popular Bittorrent client rtorrent.
 > [More info](https://github.com/Novik/ruTorrent)
