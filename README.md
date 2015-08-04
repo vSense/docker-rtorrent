@@ -8,9 +8,9 @@ ruTorrent is a front-end for the popular Bittorrent client rtorrent.
 
 ## How to use this image
 
-This is a Dockerfile to set up "rtorrent with rutorrent", it based on Alpine Linux and uses Nginx and php-fpm
+This Dockerfile sets up rtorrent with rutorrent, it is based on Alpine Linux and uses Nginx and php-fpm
 
-This image contains 2 volumes you can override with host or data containers volumes:
+This image contains 2 volumes that you can override with host or data container volumes:
 - /downloads : your downloads folder
 - /rutorrent : rutorrent files
 
@@ -18,19 +18,19 @@ This image contains 2 volumes you can override with host or data containers volu
 docker run -d --name rtorrent --hostname rtorrent -p 6881:6881 -p 6881:6881/udp -p 51413:51413 -p 51413:51413/udp -v /srv/configs/rutorrent:/rutorrent -v /srv/seedbox:/downloads vsense/rtorrent
 ```
 
-The ports used above are defined in the rtorrent configuration file (.rtorrentrc) and are just for example.
+The ports used above are defined in the rtorrent configuration file (.rtorrentrc) and are shown as an example.
 
-Of course you can mount as many volumes as you want, the base volumes are here to ensure image compatibility.
+Of course you can mount as many volumes as you want, the base volumes existing to ensure image compatibility.
 
 ## Overriding rutorrent
 
-Because rutorrent is often updated and save your settings, it is possible to git clone rutorrent locally on the host and mount it in the container, as in the exemple above. This will allow you to upgrade rtorrent with git pull (there is no auto-update for rutorrent) as well as to configure plugins and commit your modifications.
+Because rutorrent is often updated and saves your settings, it is possible to use git clone rutorrent locally on the host and mount it in the container, as in the example above. This will allow you to upgrade rtorrent with git pull (there is no auto-update for rutorrent) as well as to configure plugins and commit your modifications.
 
 ## Overriding `.rtorrentrc`
 
-A sample of `.rtorrentrc` is available in this repo as `rtorrent.conf`
+A sample `.rtorrentrc` file is available in this repo as `rtorrent.conf`
 
-It is also possible to override it by mounting the file from host: 
+It is also possible to override it by mounting the file from host:
 
 ```
 docker run -d --name rtorrent --hostname rtorrent -p 6881:6881 -p 6881:6881/udp -p 51413:51413 -p 51413:51413/udp -v /srv/configs/rutorrent:/rutorrent -v /srv/seedbox:/downloads vsense/rtorrent -v /srv/config/rtorrent/rtorrent.conf:/.rtorrentrc
@@ -65,3 +65,4 @@ RestartSec=5
 [Install]
 WantedBy=multi-user.target
 ```
+
