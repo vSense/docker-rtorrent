@@ -18,7 +18,7 @@ This image contains 2 volumes you can override with host or data containers volu
 docker run -d --name rtorrent --hostname rtorrent -p 6881:6881 -p 6881:6881/udp -p 51413:51413 -p 51413:51413/udp -v /srv/configs/rutorrent:/rutorrent -v /srv/seedbox:/downloads vsense/rtorrent
 ```
 
-The ports used above are define in the .rtorrentrc file.
+The ports used above are defined in the rtorrent configuration file (.rtorrentrc) and are just for example.
 
 Of course you can mount as many volumes as you want, the base volumes are here to ensure image compatibility.
 
@@ -26,9 +26,15 @@ Of course you can mount as many volumes as you want, the base volumes are here t
 
 Because rutorrent is often updated and save your settings, it is possible to git clone rutorrent locally on the host and mount it in the container, as in the exemple above. This will allow you to upgrade rtorrent with git pull (there is no auto-update for rutorrent) as well as to configure plugins and commit your modifications.
 
-## Overriding .rtorrentrc
+## Overriding `.rtorrentrc`
 
+A sample of `.rtorrentrc` is available in this repo as `rtorrent.conf`
 
+It is also possible to ovveride it by mounting the file from host: 
+
+```
+docker run -d --name rtorrent --hostname rtorrent -p 6881:6881 -p 6881:6881/udp -p 51413:51413 -p 51413:51413/udp -v /srv/configs/rutorrent:/rutorrent -v /srv/seedbox:/downloads vsense/rtorrent -v /srv/config/rtorrent/rtorrent.conf:/.rtorrentrc
+```
 
 ## Init Script
 
