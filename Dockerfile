@@ -1,12 +1,13 @@
-FROM alpine:3.2
+FROM vsense/baseimage:alpine
 
 MAINTAINER vSense <docker@vsense.fr>
 
 RUN apk add --update \
     rtorrent \
     nginx \
-    php-fpm \
-    php-json \
+    php7@testing \
+    php7-fpm@testing \
+    php7-json@testing \
     curl \
     gzip \
     zip \
@@ -14,6 +15,8 @@ RUN apk add --update \
     supervisor \
     git \
     geoip \
+    ffmpeg \
+    libmediainfo@testing \
     && git clone https://github.com/Novik/ruTorrent.git /rutorrent \
     && mkdir -p /tmp/nginx/client-body /downloads/incoming /downloads/completed /downloads/watched /downloads/sessions /tmp/rtorrent \
     && adduser -D -h / -u 5001 rtorrent \
@@ -24,12 +27,13 @@ RUN apk add --update \
         -e 's/listen\.owner.*/listen\.owner = rtorrent/' \
         -e 's/listen\.group.*/listen\.group = rtorrent/' \
         -e 's/error_log =.*/error_log = \/dev\/stdout/' \
-        /etc/php/php-fpm.conf \
+        /etc/php7/php-fpm.d/www.conf \
     && sed -i \
         -e '/open_basedir =/s/^/\;/' \
-        /etc/php/php.ini \
+        /etc/php7/php.ini \
     && sed -i \
         -e "/curl/ s/''/'\/usr\/bin\/curl'/" \
+        -e "/php/ s/''/'\/usr\/bin\/php7'/" \
         /rutorrent/conf/config.php \
     && rm -rf /var/cache/apk/*
 
