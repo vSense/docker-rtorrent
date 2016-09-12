@@ -1,10 +1,12 @@
 ## What is rtorrent/rutorrent
 
+[![](https://images.microbadger.com/badges/version/vsense/rtorrent.svg)](http://microbadger.com/images/vsense/rtorrent "Get your own version badge on microbadger.com") [![](https://images.microbadger.com/badges/image/vsense/rtorrent.svg)](http://microbadger.com/images/vsense/rtorrent "Get your own image badge on microbadger.com")
+
 rTorrent is a BitTorrent client.
-> [More info](https://github.com/rakshasa/rtorrent)
+[More info](https://github.com/rakshasa/rtorrent)
 
 ruTorrent is a front-end for the popular Bittorrent client rtorrent.
-> [More info](https://github.com/Novik/ruTorrent)
+[More info](https://github.com/Novik/ruTorrent)
 
 ## How to use this image
 
