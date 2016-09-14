@@ -40,6 +40,8 @@ COPY supervisord-rtorrent.ini /etc/supervisor.d/supervisord-rtorrent.ini
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
+COPY auth_file /etc/nginx/auth_file
+
 COPY rtorrent.conf /.rtorrent.rc
 
 VOLUME /downloads /rutorrent
