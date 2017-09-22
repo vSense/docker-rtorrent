@@ -5,9 +5,9 @@ MAINTAINER vSense <docker@vsense.fr>
 RUN apk add --update \
     rtorrent \
     nginx \
-    php7@community \
-    php7-fpm@community \
-    php7-json@community \
+    php7 \
+    php7-fpm \
+    php7-json \
     curl \
     gzip \
     zip \
@@ -39,8 +39,6 @@ RUN apk add --update \
 COPY supervisord-rtorrent.ini /etc/supervisor.d/supervisord-rtorrent.ini
 
 COPY nginx.conf /etc/nginx/nginx.conf
-
-COPY auth_file /etc/nginx/auth_file
 
 COPY rtorrent.conf /.rtorrent.rc
 
